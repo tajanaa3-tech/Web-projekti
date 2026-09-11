@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Zadaci - Unos Podataka</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Zadaci s Unosom</h1>
+
+        <!-- Zadatak 5 -->
+        <div class="task-box">
+            <h3>Zadatak 5: Provjera parnosti broja</h3>
+            <div class="input-group">
+                <input type="number" id="inputZad5" placeholder="Unesi broj">
+                <button onclick="izracunajZad5()">Provjeri</button>
+            </div>
+            <div class="result" id="resZad5"></div>
+        </div>
+
+        <!-- Zadatak 9 -->
+        <div class="task-box">
+            <h3>Zadatak 9: Pozdrav</h3>
+            <div class="input-group">
+                <input type="text" id="imeZad9" placeholder="Ime">
+                <input type="text" id="prezimeZad9" placeholder="Prezime">
+                <button onclick="ispisiZad9()">Pozdravi</button>
+            </div>
+            <div class="result" id="resZad9"></div>
+        </div>
+
+        <!-- Zadatak 11 -->
+        <div class="task-box">
+            <h3>Zadatak 11: Izračun prosjeka ocjena</h3>
+            <div class="input-group">
+                <input type="number" id="ocjena1" placeholder="Ocjena 1" min="1" max="5">
+                <input type="number" id="ocjena2" placeholder="Ocjena 2" min="1" max="5">
+                <input type="number" id="ocjena3" placeholder="Ocjena 3" min="1" max="5">
+                <button onclick="izracunajZad11()">Prosjek</button>
+            </div>
+            <div class="result" id="resZad11"></div>
+        </div>
+
+        <!-- Zadatak 12 -->
+        <div class="task-box">
+            <h3>Zadatak 12: Odbrojavanje do 0</h3>
+            <div class="input-group">
+                <input type="number" id="inputZad12" placeholder="Početni broj">
+                <button onclick="pokreniZad12()">Odbrojavaj</button>
+            </div>
+            <div class="result" id="resZad12"></div>
+        </div>
+
+        <p style="margin-top:20px; font-size:13px; color:#777;">
+            * Ostali statički zadaci (1, 2, 3, 4, 6, 7, 8, 10, 13, 14, 15) ispisuju se izravno u konzoli (<kbd>F12</kbd>).
+        </p>
+    </div>
+
+    <script>
+        // ZADATAK 1
+        console.log("--- Zadatak 1 ---");
+        console.log("Hello, World!");
+
+        // ZADATAK 2
+        console.log("\n--- Zadatak 2 ---");
+        console.log("Zbroj 7 + 5 je:", 7 + 5);
+
+        // ZADATAK 3
+        console.log("\n--- Zadatak 3 ---");
+        function kvadrat(broj) { return broj * broj; }
+        console.log("Kvadrat broja 5 je:", kvadrat(5));
+
+        // ZADATAK 4
+        console.log("\n--- Zadatak 4 ---");
+        for (let i = 1; i <= 10; i++) { console.log(i); }
+
+        // ZADATAK 5 (S HTML unosom)
+        function izracunajZad5() {
+            let val = Number(document.getElementById("inputZad5").value);
+            let res = (val % 2 === 0) ? `Broj ${val} je paran.` : `Broj ${val} je neparan.`;
+            document.getElementById("resZad5").innerText = res;
+            console.log(res);
+        }
+
+        // ZADATAK 6
+        console.log("\n--- Zadatak 6 ---");
+        let brojeviNiz = [10, 20, 30];
+        console.log("Zbroj niza je:", brojeviNiz[0] + brojeviNiz[1] + brojeviNiz[2]);
+
+        // ZADATAK 7
+        console.log("\n--- Zadatak 7 ---");
+        console.log("Najveći broj je:", Math.max(12, 45, 27));
+
+        // ZADATAK 8
+        console.log("\n--- Zadatak 8 ---");
+        function prebrojiSamoglasnike(str) {
+            let brojac = 0, samoglasnici = "aeiouAEIOU";
+            for (let slovo of str) { if (samoglasnici.includes(slovo)) brojac++; }
+            return brojac;
+        }
+        console.log("Samoglasnika u 'Programiranje':", prebrojiSamoglasnike("Programiranje"));
+
+        // ZADATAK 9 (S HTML unosom)
+        function ispisiZad9() {
+            let ime = document.getElementById("imeZad9").value;
+            let prezime = document.getElementById("prezimeZad9").value;
+            let poruka = `Bok, ${ime} ${prezime}!`;
+            document.getElementById("resZad9").innerText = poruka;
+            console.log(poruka);
+        }
+
+        // ZADATAK 10
+        console.log("\n--- Zadatak 10 ---");
+        let a = 15, b = 8;
+        console.log(a > b ? `Veći je ${a}, a manji ${b}` : `Veći je ${b}, a manji ${a}`);
+
+        // ZADATAK 11 (S HTML unosom)
+        function izracunajZad11() {
+            let o1 = Number(document.getElementById("ocjena1").value);
+            let o2 = Number(document.getElementById("ocjena2").value);
+            let o3 = Number(document.getElementById("ocjena3").value);
+            let prosjek = (o1 + o2 + o3) / 3;
+            let ispis = "Prosjek ocjena: " + prosjek.toFixed(2);
+            document.getElementById("resZad11").innerText = ispis;
+            console.log(ispis);
+        }
+
+        // ZADATAK 12 (S HTML unosom)
+        function pokreniZad12() {
+            let start = Number(document.getElementById("inputZad12").value);
+            let niz = [];
+            if (start >= 0) {
+                for (let i = start; i >= 0; i--) niz.push(i);
+            } else {
+                for (let i = start; i <= 0; i++) niz.push(i);
+            }
+            document.getElementById("resZad12").innerText = "Niz: " + niz.join(", ");
+            console.log("Odbrojavanje:", niz);
+        }
+
+        // ZADATAK 13
+        console.log("\n--- Zadatak 13 ---");
+        function provjeriBroj(n) { return n > 0 ? "Pozitivan" : (n < 0 ? "Negativan" : "Nula"); }
+        console.log("Broj -5 je:", provjeriBroj(-5));
+
+        // ZADATAK 14
+        console.log("\n--- Zadatak 14 ---");
+        for (let i = 1; i <= 20; i += 2) { console.log(i); }
+
+        // ZADATAK 15
+        console.log("\n--- Zadatak 15 ---");
+        function zbroji(x, y) { return x + y; }
+        console.log("Zbroj 14 + 26 je:", zbroji(14, 26));
+    </script>
+</body>
+</html>
