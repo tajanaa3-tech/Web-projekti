@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML, CSS i JS Zadatak</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 50px;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .gallery img.rollover-img:hover {
+            transform: scale(1.08);
+            filter: brightness(1.2);
+        }
+        #swapImage {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Galerija slika sa CSS i JS efektima</h1>
+
+    <div class="gallery">
+        <img src="https://picsum.photos/id/1015/300/200" alt="Priroda 1">
+        <img src="https://picsum.photos/id/1016/300/200" alt="Priroda 2" class="rollover-img">
+        <img id="swapImage" src="https://picsum.photos/id/1018/300/200" alt="Slika za zamjenu">
+    </div>
+
+    <script>
+        const slikaZaZamjenu = document.getElementById('swapImage');
+
+        const prvaSlika = "https://picsum.photos/id/1018/300/200";
+        const zamjenskaSlika = "https://picsum.photos/id/1025/300/200";
+
+        slikaZaZamjenu.addEventListener('click', function() {
+            if (slikaZaZamjenu.src.includes("1018")) {
+                slikaZaZamjenu.src = zamjenskaSlika;
+            } else {
+                slikaZaZamjenu.src = prvaSlika;
+            }
+        });
+    </script>
+
+</body>
+</html>
